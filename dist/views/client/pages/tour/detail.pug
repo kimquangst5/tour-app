@@ -1,0 +1,42 @@
+extends ../../layout/default.pug
+
+block main
+	- if(tour)
+		div(class=`grid grid-cols-2 gap-[20px]`)
+			div(class=``)
+			
+				div(style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff", class="swiper mySwiper2")
+					div(class="swiper-wrapper")
+						each it in JSON.parse(tour.images)
+							div(class=`w-full swiper-slide`)
+								img(src=it, alt=tour.title class=`w-full h-auto aspect-square rounded-[10px]`)
+						
+					div(class="swiper-button-next")
+					div(class="swiper-button-prev")
+				div(thumbsSlider='', class="swiper mySwiper")
+					div(class="swiper-wrapper")
+						each it in JSON.parse(tour.images)
+							div(class=`w-full swiper-slide`)
+								img(src=it, alt=tour.title class=`w-full h-auto aspect-square rounded-[10px]`)
+						
+
+			
+			
+			div(class=``)
+				div(class=``) 
+					div(class=`text-do font-bold text-[20px] py-[20px]`) #{tour.title}
+				div(class=``)
+					div(class=``) Lịch khởi hành: #{tour.timeStartFormat}
+				div(class=``)
+					div(class=``) Còn lại:  #{tour.stock} chỗ
+				div(class=``)
+					div(class=`text-do font-bold text-[20px] py-[20px]`) #{tour.priceNew.toLocaleString()}
+						sup đ
+				div(class=``)
+					del(class=`text-[black]/30  py-[10px]`) #{tour.price.toLocaleString()}
+						sup đ
+				div(class=``)
+					div(class=`text-[black]  py-[10px]`) Giám tới: #{tour.discount}%
+				form(form-tour-detail tour-id = tour.id)
+					input(type="number" class=`w-full border-[1px] border-[black] rounded-[10px] outline-none text-center py-[10px]` value=1 min=1 max=tour.stock)
+					button(type="submit") Thêm vào giỏ hàng

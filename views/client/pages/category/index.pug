@@ -1,0 +1,15 @@
+extends ../../layout/default.pug
+
+block main
+	div(class=``)
+		div(class=``) Danh sách danh mục
+		//- div(class=``) #{it.title}
+	div(class=`grid grid-cols-4 gap-[20px]`)
+		each it in categories
+			div(class=`border-[1px] rounded-[10px] p-[10px] border-[black]/40 truncate text-wrap`)
+				div(class=`w-full rounded-[10px]`)
+					img(src=it.image, alt=it.title class=`w-full h-auto aspect-square`)
+				div(class=``)
+					div(class=`font-bold`) #{it.title}
+					a(href=`/tour/${it.slug}` class=`flex border-[black]/20 border-[1px] rounded-[8px] p-[10px] text-center`) Xem ngay
+				

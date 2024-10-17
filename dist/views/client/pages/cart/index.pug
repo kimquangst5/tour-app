@@ -1,0 +1,33 @@
+extends ../../layout/default.pug
+
+block main
+	div(class=`font-bold py-[20px] text-[20px] text-xanh`) Giỏ hàng của bạn
+	table(class=`w-full border-collape border-[1px] border-[black]/20` table-cart)
+		thead
+			tr
+				th
+					div(class=``) STT
+				th
+					div(class=``) Hình ảnh
+				th
+					div(class=``) Tiêu đề
+				th
+					div(class=``) Giá
+				th
+					div(class=``) Số lượng
+				th
+					div(class=``) Tổng tiền
+				th
+					div(class=``) Hành động
+		tbody
+	div(class=` flex grid grid-cols-7 items-center` )
+		div( class=`col-span-5 text-center py-[20px]  font-bold text-xanh`) Tổng tiền
+		div(class=`col-span-2 text-center font-bold text-do text-[20px]` sum-price) 0
+
+	form(form-order)
+		input(type="text", name="fullName" placeholder='Họ tên') 
+		input(type="number", name="phone" placeholder='Số điện thoại') 
+		input(type="text", name="address" placeholder='Địa chỉ')
+		textarea(name="note" placeholder='Ghi chú' rows='10' class=`block w-full`)
+		button(type="submit") Mua ngay
+					

@@ -1,0 +1,17 @@
+extends ../../layout/default.pug
+
+block main
+	- if(tours)
+		div(class=`grid grid-cols-4 gap-[20px]`)
+			each it in tours
+				div(class=`border-[1px] rounded-[10px] p-[10px] border-[black]/40 truncate text-wrap`)
+					div(class=`w-full rounded-[10px]`)
+						- if(it.image[0])
+							img(src=it.image[0] class=`w-full h-auto aspect-square` )
+					div(class=``)
+						a(href=`/tour/detail/${it.slug}` class=`font-bold line-clamp-1`) #{it.title}
+						div(class=`flex gap-[10px]`)
+							div(class=``) #{it.price_special.toLocaleString()}
+								sup đ
+							del(class=`text-[black]/40`) -#{it.discount}%
+					
